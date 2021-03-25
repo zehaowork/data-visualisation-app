@@ -2,8 +2,9 @@
   "name": "data-visualisation-app",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://zehaowork.github.io/data-visualisation-app/",
+  "homepage": "https://zehaowork.github.io/data-visualisation-app/",
   "dependencies": {
+    "@ant-design/charts": "^1.1.0",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
@@ -18,8 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy":"npm run build",
-    "deploy":" gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": " gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

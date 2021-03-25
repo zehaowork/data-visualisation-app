@@ -1,5 +1,9 @@
 .App {
-  text-align: center;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .App-logo {
@@ -35,4 +39,36 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.visual-area {
+  display: flex;
+  flex-direction: column;
+
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+  flex: 10;
+}
+.filter_area {
+  flex: 2;
+  align-self: stretch;
+  display: flex;
+}
+
+.svg-canvas {
+  position: relative;
+  background-color: purple;
+  padding: 30px;
+  height: 100%;
+}
+
+.x-axis {
+  font-size: 20px;
+  transform: translateY(95%);
+}
+
+.bg {
+  background-color: white;
+  width: 100%;
 }
