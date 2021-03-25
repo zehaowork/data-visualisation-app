@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/data-visualisation-app/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "/data-visualisation-app/static/js/main.dd4dccaa.chunk.js",
-    "main.js.map": "/data-visualisation-app/static/js/main.dd4dccaa.chunk.js.map",
-    "runtime-main.js": "/data-visualisation-app/static/js/runtime-main.5bcb9a27.js",
-    "runtime-main.js.map": "/data-visualisation-app/static/js/runtime-main.5bcb9a27.js.map",
-    "static/js/2.7f1e2664.chunk.js": "/data-visualisation-app/static/js/2.7f1e2664.chunk.js",
-    "static/js/2.7f1e2664.chunk.js.map": "/data-visualisation-app/static/js/2.7f1e2664.chunk.js.map",
-    "static/js/3.e118bf99.chunk.js": "/data-visualisation-app/static/js/3.e118bf99.chunk.js",
-    "static/js/3.e118bf99.chunk.js.map": "/data-visualisation-app/static/js/3.e118bf99.chunk.js.map",
+    "main.css": "/data-visualisation-app/static/css/main.4df22ccc.chunk.css",
+    "main.js": "/data-visualisation-app/static/js/main.0fdc6a8f.chunk.js",
+    "main.js.map": "/data-visualisation-app/static/js/main.0fdc6a8f.chunk.js.map",
+    "runtime-main.js": "/data-visualisation-app/static/js/runtime-main.6c96be06.js",
+    "runtime-main.js.map": "/data-visualisation-app/static/js/runtime-main.6c96be06.js.map",
+    "static/js/2.33b17899.chunk.js": "/data-visualisation-app/static/js/2.33b17899.chunk.js",
+    "static/js/2.33b17899.chunk.js.map": "/data-visualisation-app/static/js/2.33b17899.chunk.js.map",
+    "static/js/3.2a67c5df.chunk.js": "/data-visualisation-app/static/js/3.2a67c5df.chunk.js",
+    "static/js/3.2a67c5df.chunk.js.map": "/data-visualisation-app/static/js/3.2a67c5df.chunk.js.map",
     "index.html": "/data-visualisation-app/index.html",
-    "static/css/main.9d5b29c0.chunk.css.map": "/data-visualisation-app/static/css/main.9d5b29c0.chunk.css.map",
-    "static/js/2.7f1e2664.chunk.js.LICENSE.txt": "/data-visualisation-app/static/js/2.7f1e2664.chunk.js.LICENSE.txt",
+    "static/css/main.4df22ccc.chunk.css.map": "/data-visualisation-app/static/css/main.4df22ccc.chunk.css.map",
+    "static/js/2.33b17899.chunk.js.LICENSE.txt": "/data-visualisation-app/static/js/2.33b17899.chunk.js.LICENSE.txt",
     "static/media/logo.6ce24c58.svg": "/data-visualisation-app/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.5bcb9a27.js",
-    "static/js/2.7f1e2664.chunk.js",
-    "static/css/main.9d5b29c0.chunk.css",
-    "static/js/main.dd4dccaa.chunk.js"
+    "static/js/runtime-main.6c96be06.js",
+    "static/js/2.33b17899.chunk.js",
+    "static/css/main.4df22ccc.chunk.css",
+    "static/js/main.0fdc6a8f.chunk.js"
   ]
 }
