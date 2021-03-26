@@ -1,3 +1,4 @@
+/* eslint-disable no-loop-func */
 import logo from './logo.svg';
 import './App.css';
 
@@ -28,36 +29,140 @@ function App() {
     },
   };
   const [result, setResult] = useState([]);
+  const [columns, setColumns] = useState({});
+  const [queryTable, setQueryTable] = useState("sample size");
+  const [queryParam, setQueryParam] = useState({Industry:[],WorkForce:[]});
+  const [xField, setXField] = useState("Industry");
+  const [yField, setYField] = useState("value");
+  const [seriesField, setSerisField] = useState("WorkForce");
+  const [isPercent, setIsPercent] = useState(false);
+  const [isStack, setIsStack] = useState(false)
   
   useEffect(() => {
-    query("sample size",'Total')
-    query("Trading Status by Industry")
+    query();
+    
   }, [])
 
+  const renderTable = BCISDATA['BCISDATA'].map((el,index)=>{
+    return <div onClick={()=>{findColumns(index)}} className="table" >{el.name}</div>
+  })
+
+  const renderColumns = ()=>{
+    let res = []
+    for(var key in columns){
+
+      res.push(<div className='tables'>
+        {key}
+        {
+
+columns[key].map(el=>{
+        let tmpKey = key;
+        return<div  onClick={()=>{addQueryParams(tmpKey,el)}} className='table'>{el}</div>
+})
+        }
+      </div>)
+      
+    }
+   return res;
+  }
+
+  const addQueryParams = (key,el)=>{
+    console.log(key)
+      let tmpParam = {...queryParam}
+      let tmpFilterArray = [...tmpParam[key]]
+      tmpFilterArray.push(el);
+      tmpParam[key] = tmpFilterArray;
+      console.log(tmpParam)
+      setQueryParam(tmpParam)
+  }
 
   useEffect(() => {
+    renderColumns()
+  }, [columns])
+
+  useEffect(() => {
+    query()
+  }, [queryParam])
+
+  const findColumns =(index)=>{ 
+    setQueryTable(BCISDATA['BCISDATA'][index]['name'])
+    let tableElement = BCISDATA['BCISDATA'][index]['dataset'][0]
+    let columns = {}
+    let queryParam = {};
+    if(tableElement['value'] <1){
+      setIsPercent(true);
+    }else{
+      setIsPercent(false);
+    }
+    for(var key  in tableElement){
+        if (key !== 'value'){
+          columns[key] = []
+        }
+
+    }
+    
+    BCISDATA['BCISDATA'][index]['dataset'].forEach(el =>{
+      for (var key in el){
+        if (key !=='value' && !columns[key].includes(el[key])){
+            columns[key].push(el[key])
+            queryParam[key] = []
+        }
+      }
+    })
+   setColumns(columns);
+    setXField(Object.keys(columns)[1])
+    setYField("value")
+    setSerisField(Object.keys(columns)[0])
+   setQueryParam(queryParam)
+  }
+
+ 
+
+   const query  = ()=>{
+     
+     let table = BCISDATA['BCISDATA'].find(el => el.name === queryTable)['dataset']
+     
+     
+     for(var key in queryParam){
+       if(queryParam[key].length ===0){
+         continue;
+       }
+        table = table.filter(el=> queryParam[key].includes(el[key]))
+     }
    
-   
-  
-  }, [result])
-
-
-   const query  = (table,dimensions)=>{
-     let queryTable = BCISDATA['BCISDATA'].find(el => el.name === table)
-     let res =queryTable['dataset'].filter(el=>el['WorkForce'] === dimensions)
-     console.log(res);
-     setResult(res);
-
+     setResult(table);
+     
    }
+
+const swap =()=>{
+  let tmp = xField
+  setXField(seriesField);
+  setSerisField(tmp);
+}
 
   return (
     <div className="App">
     <h1>BCISSurvey Data</h1>
     <div className="visual-area">
-    <Column data={result} className='bg'  xField="Industry" yField='value' seriesField='TradingStatus'  isPercent point={{ size: 5, shape: 'diamon' }}
+    <Column data={result} className='bg'  xAxis={{label:{rotate:100,offset:40,style:{fontSize:7}}}}  isGroup={!isStack} isStack={isStack}  autoFit  xField={xField} yField={yField} seriesField={seriesField}  isPercent={isPercent} point={{ size: 5, shape: 'diamon' }}
          />
     </div>
-    <div className="filter_area" >filter area</div>
+    <div className="filter_area" ><div  className="tables">
+      Tables
+      {renderTable}
+      </div>
+     {renderColumns()}
+     <div>
+     <div onClick={()=>{swap()}} className='swap-axis'>
+        Swap Axis
+      </div>
+      <div onClick={()=>{setIsStack(!isStack)}} className='swap-axis'>
+        Stack Bar
+      </div>
+     </div>
+     
+      </div>
+      
     </div>
   );
 }

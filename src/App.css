@@ -54,13 +54,8 @@
   flex: 2;
   align-self: stretch;
   display: flex;
-}
 
-.svg-canvas {
-  position: relative;
-  background-color: purple;
-  padding: 30px;
-  height: 100%;
+  padding: 20px;
 }
 
 .x-axis {
@@ -71,4 +66,29 @@
 .bg {
   background-color: white;
   width: 100%;
+  height: 100%;
+}
+
+.tables {
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-right: 20px;
+
+  flex: 1;
+}
+.table {
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.swap-axis {
+  width: 150px;
+  height: 20px;
+  text-align: center;
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
